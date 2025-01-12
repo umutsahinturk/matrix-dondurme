@@ -22,21 +22,26 @@ int main()
     
     printf("Matrisi sağa döndürmek için 1, sola döndürmek için 0 girin: ");
     dondurulecek_yon = kullanicidan_sayi_al();
-    if (dondurulecek_yon == 1) 
-    {
-        matrisi_saga_dondur(boyut, matris);
-    }
 
-    else if (dondurulecek_yon == 0) 
+    while (1)
     {
-        matrisi_sola_dondur(boyut, matris);
-    } 
-    
-    else {
-        printf("Lütfen sadece 1 veya 0 girin.\n");
-    }
+        if (dondurulecek_yon == 1) 
+        {
+            matrisi_saga_dondur(boyut, matris);
+            return 0;
+        }
 
-    return 0;
+        else if (dondurulecek_yon == 0) 
+        {
+            matrisi_sola_dondur(boyut, matris);
+            return 0;
+        } 
+
+        else {
+            printf("Lütfen yalnızca 1 veya 0 girin: ");
+            dondurulecek_yon = kullanicidan_sayi_al();
+        }
+    }
 }
 
 int kullanicidan_sayi_al()
