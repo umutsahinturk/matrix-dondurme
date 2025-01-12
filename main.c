@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int kullanicidan_sayi_al();
 void kullanicidan_matris_al(int n, int matris[n][n]);
 void matrisi_saga_dondur(int n, int matris[n][n]);
 void matrisi_sola_dondur(int n, int matris[n][n]);
@@ -7,15 +8,10 @@ void matrisi_bastir(int n, int dondurulmus_matris[n][n]);
 
 int main() 
 {
-    int boyut;   
+    int boyut;
 
     printf("Matrisin boyutunu girin: ");
-    int hata_kodu = scanf("%d", &boyut);
-
-    if (hata_kodu == EOF || boyut <= 0) {
-        printf("Lütfen geçerli bir sayı değeri girin. (Pozitif tam sayılar)");
-        return 1;
-    }
+    boyut = kullanicidan_sayi_al();
 
     int matris[boyut][boyut];
     kullanicidan_matris_al(boyut, matris);
@@ -25,14 +21,13 @@ int main()
     char dondurulecek_yon;
     
     printf("Matrisi sağa döndürmek için 1, sola döndürmek için 0 girin: ");
-    scanf(" %c", &dondurulecek_yon);
-
-    if (dondurulecek_yon == '1') 
+    dondurulecek_yon = kullanicidan_sayi_al();
+    if (dondurulecek_yon == 1) 
     {
         matrisi_saga_dondur(boyut, matris);
     }
 
-    else if (dondurulecek_yon == '0') 
+    else if (dondurulecek_yon == 0) 
     {
         matrisi_sola_dondur(boyut, matris);
     } 
@@ -44,6 +39,18 @@ int main()
     return 0;
 }
 
+int kullanicidan_sayi_al()
+{
+    int sayi;
+
+    while (scanf("%d", &sayi) != 1) 
+    {
+        printf("Lütfen bir tam sayı girin: ");
+        while (getchar() != '\n');
+    }
+    return sayi;
+}
+
 void kullanicidan_matris_al(int n, int matris[n][n])
 {
     for (int i = 1; i <= n; i++) 
@@ -51,7 +58,7 @@ void kullanicidan_matris_al(int n, int matris[n][n])
         for (int j = 1; j <= n; j++) 
         {
             printf("Lütfen %dx%d bouyutundaki matrisin %d. satır %d. sütunundaki elemanıni girin: ", n, n, i, j);
-            scanf(" %d", &matris[i][j]);
+            matris[i][j] = kullanicidan_sayi_al();
         }
     }
 }
