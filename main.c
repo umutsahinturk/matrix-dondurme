@@ -18,7 +18,7 @@ int main()
 
     matrisi_bastir(boyut, matris);
 
-    char dondurulecek_yon;
+    int dondurulecek_yon;
     
     printf("Matrisi sağa döndürmek için 1, sola döndürmek için 0 girin: ");
     dondurulecek_yon = kullanicidan_sayi_al();
@@ -62,7 +62,7 @@ void kullanicidan_matris_al(int n, int matris[n][n])
     {
         for (int j = 0; j < n; j++) 
         {
-            printf("Lütfen %dx%d bouyutundaki matrisin %d. satır %d. sütunundaki elemanıni girin: ", n, n, i, j);
+            printf("Lütfen %dx%d bouyutundaki matrisin %d. satır %d. sütunundaki elemanıni girin: ", n, n, i + 1, j + 1);
             matris[i][j] = kullanicidan_sayi_al();
         }
     }
@@ -76,7 +76,7 @@ void matrisi_saga_dondur(int n, int matris[n][n])
     {
         for (int j = 0; j < n; j++) 
         {
-            dondurulmus_matris[j][n-i+1] = matris[i][j];
+            dondurulmus_matris[j][n-i-1] = matris[i][j];
         }
     }
 
@@ -91,7 +91,7 @@ void matrisi_sola_dondur(int n, int matris[n][n])
     {
         for (int j = 0; j < n; j++) 
         {
-            dondurulmus_matris[n-j+1][i] = matris[i][j];
+            dondurulmus_matris[n-j-1][i] = matris[i][j];
         }
     }
 
