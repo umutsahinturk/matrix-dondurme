@@ -58,9 +58,9 @@ int kullanicidan_sayi_al()
 
 void kullanicidan_matris_al(int n, int matris[n][n])
 {
-    for (int i = 1; i <= n; i++) 
+    for (int i = 0; i < n; i++) 
     {
-        for (int j = 1; j <= n; j++) 
+        for (int j = 0; j < n; j++) 
         {
             printf("Lütfen %dx%d bouyutundaki matrisin %d. satır %d. sütunundaki elemanıni girin: ", n, n, i, j);
             matris[i][j] = kullanicidan_sayi_al();
@@ -72,9 +72,9 @@ void matrisi_saga_dondur(int n, int matris[n][n])
 {
     int dondurulmus_matris[n][n];
 
-    for (int i = 1; i <= n; i++) 
+    for (int i = 0; i < n; i++) 
     {
-        for (int j = 1; j <= n; j++) 
+        for (int j = 0; j < n; j++) 
         {
             dondurulmus_matris[j][n-i+1] = matris[i][j];
         }
@@ -87,9 +87,9 @@ void matrisi_sola_dondur(int n, int matris[n][n])
 {
     int dondurulmus_matris[n][n];
 
-    for (int i = 1; i <= n; i++) 
+    for (int i = 0; i < n; i++) 
     {
-        for (int j = 1; j <= n; j++) 
+        for (int j = 0; j < n; j++) 
         {
             dondurulmus_matris[n-j+1][i] = matris[i][j];
         }
@@ -100,9 +100,9 @@ void matrisi_sola_dondur(int n, int matris[n][n])
 
 void matrisi_bastir(int n, int dondurulmus_matris[n][n])
 {
-    for (int i = 1; i <= n; i++) 
+    for (int i = 0; i < n; i++) 
     {
-        for (int j = 1; j <= n; j++) 
+        for (int j = 0; j < n; j++) 
         {
             printf("%d ", dondurulmus_matris[i][j]);
         }
