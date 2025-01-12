@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-void kullanicidan_matris_al(int n, int arr[n][n]);
-void matrisi_saga_dondur(int n, int arr[n][n]);
-void matrisi_sola_dondur(int n, int arr[n][n]);
+void kullanicidan_matris_al(int n, int matris[n][n]);
+void matrisi_saga_dondur(int n, int matris[n][n]);
+void matrisi_sola_dondur(int n, int matris[n][n]);
+void matrisi_bastir(int n, int dondurulmus_matris[n][n]);
 
 int main() 
 {
@@ -18,6 +19,8 @@ int main()
 
     int matris[boyut][boyut];
     kullanicidan_matris_al(boyut, matris);
+
+    matrisi_bastir(boyut, matris);
 
     char dondurulecek_yon;
     
@@ -53,12 +56,34 @@ void kullanicidan_matris_al(int n, int matris[n][n])
     }
 }
 
-void matrisi_saga_dondur(int n, int arr[n][n])
+void matrisi_saga_dondur(int n, int matris[n][n])
 {
-printf("slm");
+
 }
 
-void matrisi_sola_dondur(int n, int arr[n][n])
+void matrisi_sola_dondur(int n, int matris[n][n])
 {
-printf("slm");
+    int dondurulmus_matris[n][n];
+
+    for (int i = 1; i <= n; i++) 
+    {
+        for (int j = 1; j <= n; j++) 
+        {
+            dondurulmus_matris[n-j+1][i] = matris[i][j];
+        }
+    }
+
+    matrisi_bastir(n, dondurulmus_matris);
+}
+
+void matrisi_bastir(int n, int dondurulmus_matris[n][n])
+{
+    for (int i = 1; i <= n; i++) 
+    {
+        for (int j = 1; j <= n; j++) 
+        {
+            printf("%ls ", dondurulmus_matris[i][j]);
+        }
+    printf("\n");
+    }
 }
