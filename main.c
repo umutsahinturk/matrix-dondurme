@@ -58,7 +58,17 @@ void kullanicidan_matris_al(int n, int matris[n][n])
 
 void matrisi_saga_dondur(int n, int matris[n][n])
 {
+    int dondurulmus_matris[n][n];
 
+    for (int i = 1; i <= n; i++) 
+    {
+        for (int j = 1; j <= n; j++) 
+        {
+            dondurulmus_matris[j][n-i+1] = matris[i][j];
+        }
+    }
+
+    matrisi_bastir(n, dondurulmus_matris);
 }
 
 void matrisi_sola_dondur(int n, int matris[n][n])
@@ -82,7 +92,7 @@ void matrisi_bastir(int n, int dondurulmus_matris[n][n])
     {
         for (int j = 1; j <= n; j++) 
         {
-            printf("%ls ", dondurulmus_matris[i][j]);
+            printf("%d ", dondurulmus_matris[i][j]);
         }
     printf("\n");
     }
